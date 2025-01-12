@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple HTML page inspired by the theme of Tiptur">
+    <title>Welcome to Tiptur</title>
+</head>
+<body>
+    <!-- Main Title Heading -->
+    <h1>Welcome to Tiptur</h1>
+    <h2>The Land of Tender Coconuts</h2>
+    <h3>Explore, Experience, Enjoy!</h3>
+
+    <!-- Descriptive Paragraphs -->
+    <p>Tiptur is a small town in Karnataka, India, famous for its tender coconuts, serene landscapes, and vibrant culture. Nestled in the southern part of the state, it offers a slice of rural charm combined with modernity.</p>
+
+    <!-- Unordered List -->
+    <h2>Highlights of Tiptur:</h2>
+    <ul>
+        <li>Delicious and fresh tender coconuts</li>
+        <li>Traditional silk weaving industry</li>
+        <li>Beautiful temples and heritage sites</li>
+    </ul>
+
+    <!-- Links -->
+    <h2>Useful Links:</h2>
+    <p>
+        Check out the <a href="https://en.wikipedia.org/wiki/Tiptur" target="_blank">Wikipedia page of Tiptur</a> for more information.
+        Explore more about Karnataka through our <a href="local.html">local guide</a>.
+    </p>
+
+    <!-- Image of Tiptur Coconut -->
+    <h2>Famous Tender Coconut:</h2>
+    <img src="tiptur_coconut.jpg" alt="Tiptur Tender Coconut" width="300">
+
+    <!-- Table about Key Details -->
+    <h2>Key Details:</h2>
+    <table border="1">
+        <tr>
+            <th>Feature</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Location</td>
+            <td>Southern Karnataka, India</td>
+        </tr>
+        <tr>
+            <td>Known For</td>
+            <td>Tender Coconuts, Silk Weaving</td>
+        </tr>
+    </table>
+
+    <!-- Multimedia Section -->
+    <h2>Experience Tiptur:</h2>
+    <audio controls>
+        <source src="tiptur_folk_song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <video controls width="320">
+        <source src="tiptur_documentary.mp4" type="video/mp4">
+        Your browser does not support the video element.
+    </video>
+
+    <!-- Embedded Content: Map of Tiptur -->
+    <h2>Find Us Here:</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97258.49317128136!2d76.44022973878677!3d13.255447482636197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba673dc6d2872fd%3A0x616771c65d737a66!2sTiptur%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1674230193917!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    <!-- Comments -->
+    <!-- This HTML page highlights the cultural and geographical beauty of Tiptur while including various HTML elements for practice. -->
+
+</body>
+</html>
