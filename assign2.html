@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First JavaScript Program</title>
+</head>
+<body>
+    <h1>Welcome to My JavaScript Program</h1>
+    <script>
+        // ==================== Variables ====================
+
+        // Your full name and age
+        let fullName = "Raj Singh";
+        let age = 30;
+
+        // Declare four variables without assigning values
+        let var1, var2, var3, var4;
+
+        // Declare four variables with assigning values
+        let a = 1, b = 2, c = 3, d = 4;
+
+        // Multiple line variable declaration
+        let firstName = "John";
+        let lastName = "Marco";
+        let maritalStatus = "Single";
+        let country = "American";
+        let age2 = 30;
+
+        // Single line variable declaration
+        let firstName2 = "John", lastName2 = "Boss", maritalStatus2 = "Single", country2 = "Texas", age3 = 30;
+
+        // Declare two variables and log to console
+        let _myAge_ = 25;
+        let _yourAge_ = 30;
+        console.log(`I am ${_myAge_} years old.`);
+        console.log(`You are ${_yourAge_} years old.`);
+
+        // ==================== Constants ====================
+
+        var myVar = 10;
+        let myLet = 20;
+        const myConst = 30;
+
+        console.log(myVar); // 10
+        console.log(myLet); // 20
+        console.log(myConst); // 30
+
+        // Reassigning values
+        myVar = 15;
+        myLet = 25;
+        // myConst cannot be reassigned; it will throw an error if uncommented.
+        // myConst = 35; 
+
+        // Redeclaring variables in the same scope
+        var myVar = 100; // Allowed
+        // let myLet = 200; // Error: Identifier 'myLet' has already been declared.
+        // const myConst = 300; // Error: Identifier 'myConst' has already been declared.
+
+        // ==================== Data Types ====================
+
+        let strVar = "Hello World"; // String
+        let boolVar = true;         // Boolean
+        let undefinedVar;           // Undefined
+        let nullVar = null;         // Null
+
+        console.log(typeof strVar); // string
+        console.log(typeof boolVar); // boolean
+        console.log(typeof undefinedVar); // undefined
+        console.log(typeof nullVar); // object (this is a known quirk in JavaScript)
+
+        // ==================== Comments ====================
+
+        // comments can make code readable
+
+        /*
+        comments can make code readable,
+        easy to use and informative.
+        */
+
+        // ==================== Type Conversion Example ====================
+
+        let price = "100";
+        price = Number(price);
+        console.log(price); // 100 (as a number)
+
+        price = String(price);
+        console.log(price); // "100" (as a string)
+
+        // ==================== Template Literals Example ====================
+
+        const favoriteLanguage = "JavaScript";
+        console.log(`Hi, I'm ${firstName} ${lastName}, and my favorite language is ${favoriteLanguage}.`);
+
+        // ==================== Booleans Example ====================
+
+        console.log(1);          // truthy 
+        console.log(0);          // falsy 
+
+        // Comparison operators results:
+        console.log(4 > 3);     // true
+        console.log(4 >= 3);    // true
+        console.log(4 < 3);     // false
+
+        // ==================== Logical Operators Example ==================== 
+
+        console.log(4 > 3 && 10 < 12);   // true 
+        console.log(4 > 3 || 10 < 12);   // true 
+
+         
