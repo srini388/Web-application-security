@@ -1,0 +1,216 @@
+// Variable Scope
+// Declare a variable with var, let, and const inside a block {}.
+// Log their values inside and outside the block.
+
+if (true) {
+    var globalVar = "I am global"; // Accessible outside the block
+    let blockLet = "I am block scoped"; // Accessible only inside this block
+    const blockConst = "I am also block scoped"; // Accessible only inside this block
+}
+
+console.log(globalVar); // Outputs: I am global
+// console.log(blockLet); // ReferenceError: blockLet is not defined
+// console.log(blockConst); // ReferenceError: blockConst is not defined
+
+// Finding the Bug
+// Look at the following code snippet. Identify and fix any issues related to variable scope or declaration.
+if (true) {
+    var data = "Important data";
+    let info = "Confidential info";
+}
+
+console.log(data); // Accessible
+// console.log(info); // ReferenceError: info is not defined
+
+function simulateFlaw() {
+    if (true) {
+        let sensitiveData = "This should not leak!";
+        console.log(sensitiveData); // Now secure!
+    }
+    // console.log(sensitiveData); // ReferenceError: sensitiveData is not defined
+}
+
+simulateFlaw();
+
+// Control Structures
+// Ask the user to input a number and check if it's positive, negative, or zero.
+let number = prompt("Enter a number:");
+if (number > 0) {
+    console.log("The number is positive.");
+} else if (number < 0) {
+    console.log("The number is negative.");
+} else {
+    console.log("The number is zero.");
+}
+
+// Switch Statement for Day of the Week
+let day = prompt("Enter a day of the week:");
+switch (day) {
+    case "Saturday":
+    case "Sunday":
+        console.log("It's a weekend.");
+        break;
+    default:
+        console.log("It's a weekday.");
+}
+
+// Age Feedback
+let age = prompt("Enter your age:");
+if (age >= 18) {
+    console.log("You are old enough to drive.");
+} else {
+    console.log(`You are left with ${18 - age} years to drive.`);
+}
+
+// Age Comparison
+let myAge = 25; // Example age
+let yourAge = prompt("Enter your age:");
+if (yourAge > myAge) {
+    console.log(`You are ${yourAge - myAge} years older than me.`);
+} else if (yourAge < myAge) {
+    console.log(`I am ${myAge - yourAge} years older than you.`);
+} else {
+    console.log("We are the same age.");
+}
+
+// Compare two numbers a and b
+let a = 4;
+let b = 3;
+if (a > b) {
+    console.log(`${a} is greater than ${b}`);
+} else {
+    console.log(`${a} is less than ${b}`);
+}
+
+// Grading System
+function getGrade(score) {
+    if (score >= 80) return 'A';
+    if (score >= 70) return 'B';
+    if (score >= 60) return 'C';
+    if (score >= 50) return 'D';
+    return 'F';
+}
+
+// Season Check
+let month = prompt("Enter a month:");
+if (["September", "October", "November"].includes(month)) {
+    console.log("The season is Autumn.");
+} else if (["December", "January", "February"].includes(month)) {
+    console.log("The season is Winter.");
+} else if (["March", "April", "May"].includes(month)) {
+    console.log("The season is Spring.");
+} else if (["June", "July", "August"].includes(month)) {
+    console.log("The season is Summer.");
+}
+
+// For Loops - Print even numbers between 1 and 20
+for (let i = 1; i <= 20; i++) {
+    if (i % 2 === 0) {
+        console.log(i);
+    }
+}
+
+// While Loops - Generate random numbers until greater than 8
+let generatedNumbers = [];
+while (true) {
+    let randomNum = Math.floor(Math.random() * 10) + 1;
+    generatedNumbers.push(randomNum);
+    if (randomNum > 8) break;
+}
+console.log(generatedNumbers);
+
+// Triangle Output with Loops
+for (let i = 1; i <= 7; i++) {
+    console.log('#'.repeat(i));
+}
+
+// Functions
+
+// Greeting Function
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+console.log(greet("Alice"));
+console.log(greet("Bob"));
+console.log(greet("Charlie"));
+
+// Area Calculation Function
+function calculateArea(length, width) {
+    return length * width;
+}
+console.log(calculateArea(5, 10));
+
+// Arrow Function for Squaring a Number
+const square = num => num * num;
+console.log(square(4));
+
+// Recursive Function for Factorial
+function factorial(n) {
+    return n === 0 ? 1 : n * factorial(n - 1);
+}
+console.log(factorial(5));
+
+// DOM Manipulation
+
+// Changing Text Content Example
+document.body.innerHTML += `<h1 id="heading">Welcome to JavaScript!</h1>`;
+document.body.innerHTML += `<button onclick="changeText()">Change Text</button>`;
+function changeText() {
+    document.getElementById('heading').innerText = "JavaScript is Fun!";
+}
+
+// Highlight Text Example
+document.body.innerHTML += `<p id="paragraph">Some text here.</p>`;
+document.body.innerHTML += `<button onclick="highlightText()">Highlight Text</button>`;
+function highlightText() {
+    const paragraph = document.getElementById('paragraph');
+    paragraph.style.color = 'red';
+    paragraph.style.fontWeight = 'bold';
+}
+
+// Dynamic List Creation Example
+document.body.innerHTML += `<input type="text" id="itemInput" placeholder="Add Item"><button onclick="addItem()">Add Item</button><ul id="itemList"></ul>`;
+function addItem() {
+    const inputValue = document.getElementById('itemInput').value;
+    const listItem = document.createElement('li');
+    listItem.textContent = inputValue;
+    document.getElementById('itemList').appendChild(listItem);
+}
+
+// Event Listener Example for Color Change on Hover
+const squareDiv = document.createElement('div');
+squareDiv.style.width = '200px';
+squareDiv.style.height = '200px';
+squareDiv.style.backgroundColor = 'blue';
+document.body.appendChild(squareDiv);
+squareDiv.addEventListener('mouseover', () => squareDiv.style.backgroundColor = 'yellow');
+squareDiv.addEventListener('mouseout', () => squareDiv.style.backgroundColor = 'blue');
+
+// Combined Exercise: Simple Calculator Application Example
+document.body.innerHTML += `<input type="number" id="num1"><input type="number" id="num2"><button onclick="calculate('+')">Add</button><button onclick="calculate('-')">Subtract</button><div id="result"></div>`;
+function calculate(operation) {
+    const num1 = parseFloat(document.getElementById('num1').value);
+    const num2 = parseFloat(document.getElementById('num2').value);
+    
+    let result;
+    
+    switch(operation) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            result = num1 / num2;
+            break;
+        default:
+            result = 'Invalid operation';
+            break;
+    }
+    
+   document.getElementById('result').innerText = `Result: ${result}`;
+}
