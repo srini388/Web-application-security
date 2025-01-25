@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Analysis Script</title>
+    <script>
+        // 1. Log Current URL and Extract Query Parameters
+        console.log("Current URL:", window.location.href);
+        const params = new URLSearchParams(window.location.search);
+        params.forEach((value, key) => {
+            console.log(`Parameter: ${key}, Value: ${value}`);
+            // Discuss how query parameters might be exploited in a phishing attack.
+            // Attackers can manipulate query parameters to create malicious links.
+        });
+
+        // 2. Log Hostname, Protocol, and Pathname
+        console.log("Hostname:", window.location.hostname);
+        console.log("Protocol:", window.location.protocol);
+        console.log("Pathname:", window.location.pathname);
+        // Explain how attackers might manipulate these properties to perform malicious redirects.
+
+        // 3. Redirect Users with Trusted Domains Check
+        function redirectTo(url) {
+            const trustedDomains = ["example.com", "trusted.com"];
+            const domain = new URL(url).hostname;
+            if (trustedDomains.includes(domain)) {
+                window.location.href = url;
+            } else {
+                console.warn("Redirect blocked: Untrusted domain");
+            }
+        }
+        // Example usage
+        redirectTo("https://example.com");
+
+        // 4. Log Number of Pages Visited in Current Session
+        let pagesVisited = 0;
+        window.onpopstate = function() {
+            pagesVisited++;
+            console.log("Pages visited in this session:", pagesVisited);
+            // Discuss potential privacy concerns if malicious scripts attempt to track browser history.
+        };
+
+        // 5. Display User Agent String
+        const userAgent = window.navigator.userAgent;
+        console.log("User Agent:", userAgent);
+        if (userAgent.includes("Chrome")) {
+            console.log("Browser: Google Chrome");
+        } else if (userAgent.includes("Firefox")) {
+            console.log("Browser: Mozilla Firefox");
+        } else if (userAgent.includes("HeadlessChrome")) {
+            console.log("Browser: Automation Tool (Headless Chrome)");
+        }
+
+        // 6. Log Screen Width and Height
+        console.log("Screen Width:", window.screen.width);
+        console.log("Screen Height:", window.screen.height);
+        // Explain how attackers might use screen dimensions to craft phishing attacks.
+
+        // 7. Open a New Popup Window
+        function openPopup() {
+            const popup = window.open('https://example.com', 'popup', 'width=600,height=400');
+            setTimeout(() => {
+                popup.close();
+            }, 5000); // Close after 5 seconds
+        }
+        openPopup();
+        
+        // 8. Log Domain and Origin
+        console.log("Domain:", window.location.hostname);
+        console.log("Origin:", window.location.origin);
+        // Explain relevance in CORS security.
+
+        // 9. Simulate Login Timeout After Inactivity
+        let timeout;
+        
+        function resetTimer() {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                alert("Session timed out due to inactivity.");
+                // Perform logout or redirect action here.
+            }, 10000); // 10 seconds timeout
+        }
+        
+        window.onload = resetTimer;
+        window.onmousemove = resetTimer;
+        window.onkeypress = resetTimer;
+
+        // 10. Check for HTTPS
+        if (window.location.protocol !== "https:") {
+            alert("This page is not secure! Please avoid entering sensitive information.");
+            // Suggest measures to handle such scenarios.
+        }
+
+        // 11. Open and Close a New Window
+        const newWindow = window.open('https://example.com', 'newWindow');
+        
+        setTimeout(() => {
+            newWindow.close();
+            console.log('New window closed.');
+            // Discuss scenarios where malicious scripts might misuse this functionality.
+        }, 5000); // Close after 5 seconds
+
+        // 12. Scroll to Top or Specific Element
+        function scrollToElement(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.scrollIntoView();
+                console.log(`Scrolled to element with ID: ${elementId}`);
+                // Discuss how attackers might use scrolling to hide malicious content or overlays.
+            } else {
+                window.scrollTo(0, 0); // Scroll to top if element not found
+                console.log('Scrolled to top of the page.');
+            }
+        }
+
+        scrollToElement('targetElement'); // Replace 'targetElement' with actual ID
+
+        // 13. Retrieve and Modify Document Title
+        console.log("Current Title:", document.title);
+        
+        if (!document.title.includes("Secure")) {
+            document.title += " - Security Warning";
+            console.log("Title modified to include security warning.");
+            // Explain how attackers might manipulate the document title for phishing or social engineering attacks.
+        }
+    </script>
+</head>
+<body>
+    <h1>Security Analysis Script</h1>
+    <div id="targetElement" style="margin-top:1000px;">Scroll Target Element</div>
+</body>
+</html>
